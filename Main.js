@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         rule34hentai
 // @namespace    R34H
-// @version      1.1
+// @version      1.0
 // @author       Damian666x
 // @match        https://rule34hentai.net/*
-// @downloadURL  https://github.com/Damian666x/rule34hentai/blob/master/Main.js
-// @updateURL    https://github.com/Damian666x/rule34hentai/blob/master/Main.js
+// @downloadURL  https://github.com/Damian666x/rule34hentai/raw/master/Main.js
+// @updateURL    https://github.com/Damian666x/rule34hentai/raw/master/Main.js
+// @grant        none
 // ==/UserScript==
 
 //Calculates the total number of items in the given tag(s).
