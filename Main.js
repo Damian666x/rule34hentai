@@ -1,10 +1,4 @@
-// ==UserScript==
-// @name         rule34hentai
-// @namespace    R34H
-// @version      1.0
-// @author       Damian666x
-// @match        https://rule34hentai.net/*
-// ==/UserScript==
+alert('updated');
 
 //Calculates the total number of items in the given tag(s).
 try { //Make it non-fuckappable.
