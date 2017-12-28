@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rule34hentai
 // @namespace    R34H
-// @version      1.1
+// @version      1.2
 // @author       Damian666x
 // @match        https://rule34hentai.net/*
 // @downloadURL  https://github.com/Damian666x/rule34hentai/raw/master/Main.js
