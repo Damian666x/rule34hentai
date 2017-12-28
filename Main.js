@@ -11,13 +11,7 @@
 
 //Calculates the total number of items in the given tag(s).
 try { //Make it non-fuckappable.
-    $('#image-list .blockbody .shm-image-list > *').removeAttr('class');
-    $('#image-list .blockbody .shm-image-list a').each(function(index){
-        var node = $('#image-list .blockbody .shm-image-list a:eq(' + index + ')');
-        var type = node.find('img').attr('title').split('//').reverse()[0];
-        node.html('<div class="gallery">' + node.html() + '<div class="type">' + type + '</div></div>');
-    });
-    $("#image-list :header").html("Images (Total: checking... )");
+        $("#image-list :header").html("Images (Total: checking... )");
     $('#paginator .blockbody a').each(function(index){
         if ( $('#paginator .blockbody a:eq(' + index + ')').html() == 'Last' ) {
             var Total_Page_Thumbs = $('.shm-image-list > *' ).length;
@@ -28,6 +22,16 @@ try { //Make it non-fuckappable.
                 $("#image-list :header").html("Images (Total: " + Total_Images + ")");
             });
         }});
+    $('#image-list .blockbody .shm-image-list > *').removeAttr('class');
+    $('#image-list .blockbody .shm-image-list a').each(function(index){
+        var node = $('#image-list .blockbody .shm-image-list a:eq(' + index + ')');
+        var type = node.find('img').attr('title').split('//').reverse()[0];
+        node.html('<div class="gallery">' + node.html() + '<div class="type">' + type + '</div></div>');
+    });
+    node = $('#Featured_Imageleft .blockbody a');
+    type = node.find('img').attr('title').split('//').reverse()[0];
+    node.html('<div class="gallery">' + node.html() + '<div class="type">' + type + '</div></div>');
+    node.find('img').removeAttr('style');
 }catch(err){} //We don't care to catch. We use "try" to prevent the script from failing as a whole since web scripts are dogshit.
 
 //Assigning prerequisite functions.
@@ -46,22 +50,26 @@ function insertAfter(referenceNode, newNode) { //A function to easily insert new
 
 //Adding style before everything so that when the script fails, styles work.
 addGlobalStyle(`
+#image-list .blockbody {
+    text-align: center;
+}
 div.gallery {
 	width:190px;
     height:150px;
 	display:inline-block;
 	justify-content:center;
-	border: 2px solid #B89F7C;
+	border: 2px solid #FCD9A9;
     background: #FCD9A9;
-    border-radius:1px;
-    overflow:hidden;
+    border-radius:2px;
     position:relative;
-    margin:3px;
+    margin:3px 10px;
     padding:2px;
+    text-align: left;
+
 }
 
 div.gallery:hover {
-    border: 2px solid #FCD9A9;
+    border: 2px solid #B89F7C;
 }
 
 div.gallery img {
