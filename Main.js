@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         rule34hentai
 // @namespace    R34H
-// @version      1.0
+// @version      1.1
 // @author       Damian666x
 // @match        https://rule34hentai.net/*
 // @downloadURL  https://github.com/Damian666x/rule34hentai/raw/master/Main.js
@@ -11,6 +11,12 @@
 
 //Calculates the total number of items in the given tag(s).
 try { //Make it non-fuckappable.
+    $('#image-list .blockbody .shm-image-list > *').removeAttr('class');
+    $('#image-list .blockbody .shm-image-list a').each(function(index){
+        var node = $('#image-list .blockbody .shm-image-list a:eq(' + index + ')');
+        var type = node.find('img').attr('title').split('//').reverse()[0];
+        node.html('<div class="gallery">' + node.html() + '<div class="type">' + type + '</div></div>');
+    });
     $("#image-list :header").html("Images (Total: checking... )");
     $('#paginator .blockbody a').each(function(index){
         if ( $('#paginator .blockbody a:eq(' + index + ')').html() == 'Last' ) {
@@ -40,6 +46,40 @@ function insertAfter(referenceNode, newNode) { //A function to easily insert new
 
 //Adding style before everything so that when the script fails, styles work.
 addGlobalStyle(`
+div.gallery {
+	width:190px;
+    height:150px;
+	display:inline-block;
+	justify-content:center;
+	border: 2px solid #B89F7C;
+    background: #FCD9A9;
+    border-radius:1px;
+    overflow:hidden;
+    position:relative;
+    margin:3px;
+    padding:2px;
+}
+
+div.gallery:hover {
+    border: 2px solid #FCD9A9;
+}
+
+div.gallery img {
+	width:190px;
+    height:150px;
+	object-fit:cover;
+	position:absolute;
+}
+
+div.type {
+    position: relative;
+    background-color: #0f0c0c81;
+    text-align: center;
+    color: white;
+    padding: 3px 5px;
+    font-size: 70%;
+    font-weight: bold;
+}
 #VideoPlayer {
     max-height:100vh;
 }
